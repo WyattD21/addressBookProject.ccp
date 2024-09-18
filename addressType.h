@@ -40,7 +40,7 @@ public:
         }
     }
 
-    // Mutator (setter) for zip code with value range restriction
+    // setter for zip code with value range restriction
     void setZipcode(int zip) {
         if (zip >= 11111 && zip <= 99999) {
             zipCode = zip;
