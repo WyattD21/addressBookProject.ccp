@@ -129,6 +129,9 @@
   <ItemGroup>
     <ClCompile Include="addressBookProject.ccp.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dateType.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
