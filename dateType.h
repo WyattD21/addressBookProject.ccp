@@ -9,7 +9,7 @@ private:
     int day;
     int year;
 
-    // Checks if a year is a leap year
+    // Checks if a year is a leap year.
     bool isLeapYear(int year) const {
         return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
     }
