@@ -24,7 +24,7 @@ private:
         case 2:
             return isLeapYear(year) ? 29 : 28;
         default:
-            return 0; // Invalid month
+            return 0; 
         }
     }
 
