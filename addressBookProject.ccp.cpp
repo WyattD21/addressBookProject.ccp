@@ -1,34 +1,79 @@
-//Testing addressType.h
+
 #include <iostream>
-#include "addressType.h"
+#include <string>
+
 using namespace std;
-int main()
-{
-	cout << "Testing default constructor ... " << endl;
-	addressType defAddress;
-	defAddress.print();
-	cout << endl;
 
-	cout << "Testing constructor with parameters ... " << endl;
-	addressType address("123 South Street", "Newport News", "VA", 23664);
-	address.print();
-	cout << endl;
+class addressType {
+private:
+    string streetAddress;
+    string city;
+    string state;
+    int zipCode;
 
-	cout << "Testing invalid state (Virginia)... " << endl;
-	address.setState("Virginia");
-	address.print();
-	cout << endl;
+public:
+    // Constructor with default values
+    addressType(string street = "", string cityName = "", string stateCode = "XX", int zip = 10000) {
+        setAddress(street);
+        setCity(cityName);
+        setState(stateCode);
+        setZipcode(zip);
+    }
 
-	cout << "Testing invalid zipcode (55555555)..." << endl;
-	address.setZipcode(55555555);
-	address.print();
-	cout << endl;
+    // Mutator (setter) for street address
+    void setAddress(string street) {
+        streetAddress = street;
+    }
 
-	cout << "Testing valid address ..." << endl;
-	address.setAddress("44 East Main Street");
-	address.setCity("Hampton");
-	address.setState("VA");
-	address.setZipcode(23669);
-	address.print();
-	cout << endl;
-}
+    // Mutator (setter) for city
+    void setCity(string cityName) {
+        city = cityName;
+    }
+
+    // Mutator (setter) for state with two-character restriction
+    void setState(string stateCode) {
+        if (stateCode.length() == 2) {
+            state = stateCode;
+        }
+        else {
+            state = "XX"; // Default if not valid
+        }
+    }
+
+    // Mutator (setter) for zip code with value range restriction
+    void setZipcode(int zip) {
+        if (zip >= 11111 && zip <= 99999) {
+            zipCode = zip;
+        }
+        else {
+            zipCode = 10000; // Default if not valid
+        }
+    }
+
+    // Accessor (getter) for street address
+    string getStreetAddress() const {
+        return streetAddress;
+    }
+
+    // Accessor (getter) for city
+    string getCity() const {
+        return city;
+    }
+
+    // Accessor (getter) for state
+    string getState() const {
+        return state;
+    }
+
+    // Accessor (getter) for zip code
+    int getZipCode() const {
+        return zipCode;
+    }
+
+    // Function to print the address in the correct format
+    void print() const {
+        cout << streetAddress << endl
+            << city << ", " << state << " " << zipCode << endl;
+    }
+};
+
